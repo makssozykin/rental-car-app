@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 120px;
+  background-color: var(--header-background);
+  border: 1px solid var(--header-background);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0%;
+  .link {
+    color: var(--main-text-color);
+    transition: color 0.3s ease-in-out;
+  }
+  .active {
+    color: var(--button-background-active);
+    transition: all 0.3s ease-in-out;
+  }
+}
