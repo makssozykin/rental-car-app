@@ -19,3 +19,20 @@
 .btn.btnHomePage:focus {
   background-color: var(--button-background-active);
 }
+
+.btn.btnListItem {
+  width: 276px;
+}
+
+.btn.btnListItem:hover,
+.btn.btnListItem:focus {
+  background-color: var(--button-background-active);
+}
+.btn.btnSearch {
+  width: 156px;
+}
+
+.btn.btnSearch:hover,
+.btn.btnSearch:focus {
+  background-color: var(--button-background-active);
+}

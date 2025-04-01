@@ -9,7 +9,9 @@ const HomePage = () => {
         <h1>Find your perfect rental car</h1>
         <h2>Reliable and budget-friendly rentals for any journey</h2>
         <Link to="/catalog">
-          <Button title="View Catalog">View Catalog</Button>
+          <Button title="View Catalog" type="button">
+            View Catalog
+          </Button>
         </Link>
       </div>
     </main>

@@ -1,14 +1,19 @@
 import clsx from 'clsx';
 import css from './Button.module.css';
 
-export const Button = ({ title, children }) => {
+export const Button = ({ title, type, children }) => {
   const classes = mainClass => {
     return clsx(mainClass, {
       [css.btnHomePage]: title === 'View Catalog',
       [css.btnListItem]: title === 'Read more',
+      [css.btnSearch]: title === 'Search',
       [css.btnLoadMore]: title === 'Load More',
     });
   };
 
-  return <button className={classes(css.btn)}>{children}</button>;
+  return (
+    <button type={type} className={classes(css.btn)}>
+      {children}
+    </button>
+  );
 };
