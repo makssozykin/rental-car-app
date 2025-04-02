@@ -24,8 +24,7 @@ export const CatalogItem = ({ car }) => {
 
       <div className={css.carModel}>
         <p>
-          {`${brand} `}
-          <span>{`${model}`}</span>
+          {brand === 'Land Rover' ? 'Land' : brand} <span>{`${model}`}</span>
           {`, ${year}`}
         </p>
         <p>{`$${rentalPrice}`}</p>

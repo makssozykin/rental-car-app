@@ -4,14 +4,9 @@ import { getCars, getCarsBrand } from './operations.js';
 const initialState = {
   catalog: [],
   brands: [],
-  query: {
-    brand: '',
-    rentalPrice: '',
-    minMileage: '',
-    maxMileage: '',
-    limit: '',
-    page: '',
-  },
+  page: 1,
+  totalCars: null,
+  totalPages: null,
   errors: null,
   loading: false,
 };
@@ -33,8 +28,11 @@ const slice = createSlice({
     builder
       .addCase(getCars.pending, handlePending)
       .addCase(getCars.fulfilled, (state, action) => {
-        console.log(action.payload);
+        state.loading = false;
         state.catalog = action.payload.cars;
+        state.page = 1;
+        state.totalCars = action.payload.totalCars;
+        state.totalPages = action.payload.totalPages;
       })
       .addCase(getCars.rejected, (state, action) => {
         state.errors = action.error.message;

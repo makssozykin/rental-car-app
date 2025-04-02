@@ -9,6 +9,20 @@
 
 .carItem {
   width: calc((100% - 3 * 32px) / 4);
+  height: 424px;
   display: flex;
   flex-direction: column;
+}
+
+.noCars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--main-font);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.33;
+  letter-spacing: 0%;
+  color: var(--main-text-color);
 }

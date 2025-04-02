@@ -1,6 +1,6 @@
 .carImg {
   width: 100%;
-  height: auto;
+  height: 268px;
   object-fit: cover;
   border-radius: 14px;
   margin-bottom: 16px;
@@ -9,7 +9,7 @@
 .carModel {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   margin-bottom: 8px;
 }
 
