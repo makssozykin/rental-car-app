@@ -9,7 +9,6 @@ import css from './CarDetailsPage.module.css';
 const CarDetailsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const car = useSelector(selectCar);
 
   useEffect(() => {
     try {
@@ -18,6 +17,7 @@ const CarDetailsPage = () => {
       console.log(error);
     }
   }, [dispatch, id]);
+  const car = useSelector(selectCar);
 
   const {
     accessories,
