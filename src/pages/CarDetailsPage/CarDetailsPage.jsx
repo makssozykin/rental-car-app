@@ -9,6 +9,16 @@ import css from './CarDetailsPage.module.css';
 const CarDetailsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const car = useSelector(selectCar);
+
+  useEffect(() => {
+    try {
+      dispatch(getCarById(id));
+    } catch (error) {
+      console.log(error);
+    }
+  }, [dispatch, id]);
+
   const {
     accessories,
     address,
@@ -24,15 +34,8 @@ const CarDetailsPage = () => {
     rentalPrice,
     type,
     year,
-  } = useSelector(selectCar);
-
-  useEffect(() => {
-    try {
-      dispatch(getCarById(id));
-    } catch (error) {
-      console.log(error);
-    }
-  }, [dispatch, id]);
+  } = car;
+  console.log(address);
 
   const city = address.split(',')[1];
   const country = address.split(',')[2];
