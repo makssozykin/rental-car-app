@@ -4,14 +4,11 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { Navigation } from './components/Navigation/Navigation.jsx';
 import { Loader } from './components/Loader/Loader.jsx';
-
+import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage.jsx';
 const HomePage = lazy(() => import('./pages/HomePage/HomePage.jsx'));
 const CarsPage = lazy(() => import('./pages/CarsPage/CarsPage.jsx'));
 const CarDetailsPage = lazy(() =>
   import('./pages/CarDetailsPage/CarDetailsPage.jsx')
-);
-const NotFoundPage = lazy(() =>
-  import('./pages/NotFoundPage/NotFoundPage.jsx')
 );
 
 function App() {

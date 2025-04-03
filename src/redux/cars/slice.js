@@ -1,9 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCars, getCarsBrand } from './operations.js';
+import { getCarById, getCars, getCarsBrand } from './operations.js';
 
 const initialState = {
   catalog: [],
   brands: [],
+  car: {
+    accessories: [],
+    address: null,
+    brand: null,
+    description: null,
+    engineSize: null,
+    fuelConsumption: null,
+    functionalities: [],
+    id: null,
+    img: null,
+    mileage: null,
+    model: null,
+    rentalCompany: null,
+    rentalConditions: [],
+    rentalPrice: null,
+    type: null,
+    year: null,
+  },
   page: 1,
   totalCars: null,
   totalPages: null,
@@ -19,11 +37,6 @@ const handlePending = state => {
 const slice = createSlice({
   name: 'cars',
   initialState,
-  reducers: {
-    setCars(state, action) {
-      state.catalog = action.payload;
-    },
-  },
   extraReducers: builder => {
     builder
       .addCase(getCars.pending, handlePending)
@@ -45,10 +58,17 @@ const slice = createSlice({
       .addCase(getCarsBrand.rejected, (state, action) => {
         state.errors = action.error.message;
         state.loading = false;
+      })
+      .addCase(getCarById.pending, handlePending)
+      .addCase(getCarById.fulfilled, (state, action) => {
+        state.loading = false;
+        state.car = action.payload;
+      })
+      .addCase(getCarById.rejected, (state, action) => {
+        state.errors = action.error.message;
+        state.loading = false;
       });
   },
 });
-
-export const { setCars } = slice.actions;
 
 export const carsReducer = slice.reducer;

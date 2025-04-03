@@ -1,0 +1,74 @@
+.main {
+  padding: 84px 120px 104px 120px;
+}
+
+.detailsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 72px;
+}
+
+.imgForm {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.carImg {
+  width: 640px;
+  height: 512px;
+  object-fit: cover;
+  border-radius: 18.74px;
+}
+
+.carInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.carMainInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 68px;
+}
+
+.idBrandModel {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 16px;
+}
+
+.location-mileage {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.carPrice {
+  color: var(--button-background);
+  margin-bottom: 32px;
+}
+
+.carCondition {
+  margin-bottom: 110px;
+}
+
+.carSpecification {
+  margin-bottom: 110px;
+}
+
+.carFunction {
+  margin-bottom: 110px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--main-text-color);
+}

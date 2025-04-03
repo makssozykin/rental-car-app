@@ -4,6 +4,7 @@ import css from './CatalogItem.module.css';
 
 export const CatalogItem = ({ car }) => {
   const {
+    id,
     brand,
     model,
     year,
@@ -34,7 +35,7 @@ export const CatalogItem = ({ car }) => {
         <p>{`${type} | ${km} km`}</p>
       </div>
 
-      <Link state={location} to={`/cars/${car.id}`}>
+      <Link state={location} to={`/catalog/${id}`}>
         <Button title="Read more" type="button">
           Read more
         </Button>
