@@ -1,23 +1,42 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCarById } from '../../redux/cars/operations.js';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCar } from '../../redux/cars/selectors.js';
+import { Loader } from '../../components/Loader/Loader.jsx';
 import sprite from '/icons/sprite1.svg';
 import css from './CarDetailsPage.module.css';
 
 const CarDetailsPage = () => {
   const { id } = useParams();
-  const dispatch = useDispatch();
+  const [car, setCar] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    try {
-      dispatch(getCarById(id));
-    } catch (error) {
-      console.log(error);
-    }
-  }, [dispatch, id]);
-  const car = useSelector(selectCar);
+    const getCarDetails = async () => {
+      try {
+        setLoading(true);
+        const data = await getCarById(id);
+        setCar(data);
+      } catch (error) {
+        setError(`Error getting car details: ${error.message}`);
+      } finally {
+        setLoading(false);
+      }
+    };
+    getCarDetails();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   const {
     accessories,
@@ -35,7 +54,6 @@ const CarDetailsPage = () => {
     type,
     year,
   } = car;
-  console.log(address);
 
   const city = address.split(',')[1];
   const country = address.split(',')[2];
@@ -47,7 +65,9 @@ const CarDetailsPage = () => {
     <main className={css.main}>
       <div className={css.detailsContainer}>
         <div className={css.imgForm}>
-          <img className={css.carImg} src={img} alt={`${brand} ${model}`} />
+          <div className={css.carImg}>
+            <img src={img} alt={`${brand} ${model}`} />
+          </div>
           <div>BookCarForm</div>
         </div>
         <div className={css.carInfo}>

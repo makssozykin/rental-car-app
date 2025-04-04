@@ -1,27 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCarById, getCars, getCarsBrand } from './operations.js';
+import { getCars, getCarsBrand } from './operations.js';
 
 const initialState = {
   catalog: [],
   brands: [],
-  car: {
-    accessories: [],
-    address: '',
-    brand: '',
-    description: '',
-    engineSize: '',
-    fuelConsumption: '',
-    functionalities: [],
-    id: '',
-    img: '',
-    mileage: '',
-    model: '',
-    rentalCompany: '',
-    rentalConditions: [],
-    rentalPrice: '',
-    type: '',
-    year: '',
-  },
   page: 1,
   totalCars: null,
   totalPages: null,
@@ -56,15 +38,6 @@ const slice = createSlice({
         state.brands = action.payload;
       })
       .addCase(getCarsBrand.rejected, (state, action) => {
-        state.errors = action.error.message;
-        state.loading = false;
-      })
-      .addCase(getCarById.pending, handlePending)
-      .addCase(getCarById.fulfilled, (state, action) => {
-        state.loading = false;
-        state.car = action.payload;
-      })
-      .addCase(getCarById.rejected, (state, action) => {
         state.errors = action.error.message;
         state.loading = false;
       });

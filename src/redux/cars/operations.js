@@ -25,29 +25,15 @@ export const getCars = createAsyncThunk(
   }
 );
 
-export const getCarById = createAsyncThunk(
-  'cars/getCarById',
-  async (id, thunkAPI) => {
-    console.log(id);
-    try {
-      const res = await axios.get(`/cars/${id}`);
-      console.log(res.data);
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
+export const getCarById = async id => {
+  try {
+    const res = await axios.get(`/cars/${id}`);
+    console.log(res);
+    return res.data;
+  } catch (error) {
+    return error.message;
   }
-);
-
-// export const getCarById = async id => {
-//   try {
-//     const res = await axios.get(`/cars/${id}`);
-//     console.log(res);
-//     return res.data;
-//   } catch (error) {
-//     return error.message;
-//   }
-// };
+};
 
 export const getCarsBrand = createAsyncThunk(
   'cars/getBrands',
