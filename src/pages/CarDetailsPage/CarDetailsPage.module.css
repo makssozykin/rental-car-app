@@ -41,8 +41,10 @@
 }
 
 .idBrandModel {
+  height: 32px;
   display: flex;
   justify-content: start;
+  align-items: baseline;
   gap: 16px;
   margin-bottom: 8px;
 }
@@ -57,9 +59,6 @@
 }
 
 .idBrandModel p {
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 3px;
   /* align-self: flex-end; */
   font-family: var(--main-font);
   font-weight: 500;
