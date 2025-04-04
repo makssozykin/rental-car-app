@@ -51,3 +51,16 @@
 .btn.btnSend:focus {
   background-color: var(--button-background-active);
 }
+
+.btn.btnLoadMore {
+  width: 156px;
+  font-weight: 600;
+  background-color: var(--white);
+  color: var(--main-text-color);
+  border: 1px solid var(--button-background);
+}
+
+.btn.btnLoadMore:hover,
+.btn.btnLoadMore:focus {
+  border: 1px solid var(--button-background-active);
+}

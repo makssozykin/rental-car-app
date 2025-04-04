@@ -5,10 +5,11 @@
   flex-wrap: wrap;
   column-gap: 32px;
   row-gap: 48px;
+  margin-bottom: 80px;
 }
 
 .carItem {
-  width: calc((100% - 3 * 32px) / 4);
+  width: 276px;
   height: 424px;
   display: flex;
   flex-direction: column;

@@ -1,24 +1,14 @@
-import { useSelector, useDispatch } from 'react-redux';
-
-import { selectCars } from '../../redux/cars/selectors.js';
-import { useEffect, useState } from 'react';
-import { getCars } from '../../redux/cars/operations.js';
+import { useSelector } from 'react-redux';
 import { CatalogItem } from '../CatalogItem/CatalogItem.jsx';
 import css from './CatalogList.module.css';
 import { Loader } from '../Loader/Loader.jsx';
+import { selectLoading } from '../../redux/cars/selectors.js';
 
-export const CatalogList = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const catalog = useSelector(selectCars);
-  const dispatch = useDispatch();
+export const CatalogList = ({ catalog }) => {
+  const isLoading = useSelector(selectLoading);
 
-  useEffect(() => {
-    setIsLoading(true);
-    dispatch(getCars());
-    setIsLoading(false);
-  }, [dispatch]);
   return (
-    <div>
+    <>
       {isLoading && <Loader />}
       <ul className={css.carList}>
         {catalog.length === 0 ? (
@@ -34,6 +24,6 @@ export const CatalogList = () => {
           ))
         )}
       </ul>
-    </div>
+    </>
   );
 };

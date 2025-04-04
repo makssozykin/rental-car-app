@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getCars, getCarsBrand } from './operations.js';
+import { getCars, getCarsBrand, getCarsMore } from './operations.js';
 
 const initialState = {
   catalog: [],
   brands: [],
   page: 1,
+  limit: 12,
   totalCars: null,
   totalPages: null,
   errors: null,
@@ -19,6 +20,12 @@ const handlePending = state => {
 const slice = createSlice({
   name: 'cars',
   initialState,
+  reducers: {
+    setPage: (state, action) => {
+      console.log(action.payload);
+      state.page = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(getCars.pending, handlePending)
@@ -33,6 +40,19 @@ const slice = createSlice({
         state.errors = action.error.message;
         state.loading = false;
       })
+      .addCase(getCarsMore.pending, handlePending)
+      .addCase(getCarsMore.fulfilled, (state, action) => {
+        console.log(action.payload.cars);
+        state.loading = false;
+        state.catalog = [...state.catalog, ...action.payload.cars];
+        state.page += 1;
+        state.totalCars = action.payload.totalCars;
+        state.totalPages = action.payload.totalPages;
+      })
+      .addCase(getCarsMore.rejected, (state, action) => {
+        state.errors = action.error.message;
+        state.loading = false;
+      })
       .addCase(getCarsBrand.pending, handlePending)
       .addCase(getCarsBrand.fulfilled, (state, action) => {
         state.brands = action.payload;
@@ -43,5 +63,7 @@ const slice = createSlice({
       });
   },
 });
+
+export const { setPage } = slice.actions;
 
 export const carsReducer = slice.reducer;
