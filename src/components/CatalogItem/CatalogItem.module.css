@@ -1,3 +1,22 @@
+.iconCont {
+  position: absolute;
+  top: 16px;
+  left: 244px;
+  cursor: pointer;
+}
+
+.iconFavoriteActive {
+  width: 16px;
+  height: 16px;
+  fill: var(--button-background);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--header-background);
+}
+
 .carImg {
   width: 100%;
   height: 268px;

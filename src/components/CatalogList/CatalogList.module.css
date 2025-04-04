@@ -9,6 +9,7 @@
 }
 
 .carItem {
+  position: relative;
   width: 276px;
   height: 424px;
   display: flex;

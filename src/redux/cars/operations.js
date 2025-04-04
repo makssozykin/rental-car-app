@@ -12,13 +12,12 @@ export const getCars = createAsyncThunk(
   'cars/getCars',
   async (query, thunkAPI) => {
     try {
-      const res = await axios.get('/cars', {
+      const { data } = await axios.get('/cars', {
         params: {
           ...query,
         },
       });
-      console.log(res);
-      return res.data;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -31,14 +30,13 @@ export const getCarsMore = createAsyncThunk(
     try {
       const state = thunkAPI.getState();
       const { page } = state.cars;
-      const res = await axios.get('/cars', {
+      const { data } = await axios.get('/cars', {
         params: {
           ...query,
           page: page + 1,
         },
       });
-      console.log(res);
-      return res.data;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -47,9 +45,8 @@ export const getCarsMore = createAsyncThunk(
 
 export const getCarById = async id => {
   try {
-    const res = await axios.get(`/cars/${id}`);
-    console.log(res);
-    return res.data;
+    const { data } = await axios.get(`/cars/${id}`);
+    return data;
   } catch (error) {
     return error.message;
   }
@@ -59,8 +56,8 @@ export const getCarsBrand = createAsyncThunk(
   'cars/getBrands',
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get('/brands');
-      return res.data;
+      const { data } = await axios.get('/brands');
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

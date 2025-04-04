@@ -4,6 +4,7 @@ import { getCars, getCarsBrand, getCarsMore } from './operations.js';
 const initialState = {
   catalog: [],
   brands: [],
+  favoriteCars: [],
   page: 1,
   limit: 12,
   totalCars: null,
@@ -21,9 +22,15 @@ const slice = createSlice({
   name: 'cars',
   initialState,
   reducers: {
-    setPage: (state, action) => {
+    addFavoriteCar: (state, action) => {
       console.log(action.payload);
-      state.page = action.payload;
+      const carFind = state.catalog.find(car => car.id === action.payload.id);
+      if (carFind) state.favoriteCars.push(action.payload);
+    },
+    removeFavoriteCar: (state, action) => {
+      state.favoriteCars = state.favoriteCars.filter(
+        car => car.id !== action.payload
+      );
     },
   },
   extraReducers: builder => {
@@ -64,6 +71,6 @@ const slice = createSlice({
   },
 });
 
-export const { setPage } = slice.actions;
+export const { addFavoriteCar, removeFavoriteCar } = slice.actions;
 
 export const carsReducer = slice.reducer;

@@ -17,7 +17,6 @@ const CarsPage = () => {
   const totalPages = useSelector(selectTotalPages);
   const [query, setQuery] = useState({});
   const [isLoadMore, setIsLoadMore] = useState(false);
-  console.log(catalog);
   const hasMoreCars = page < totalPages;
 
   useEffect(() => {
