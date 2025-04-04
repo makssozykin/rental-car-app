@@ -7,6 +7,7 @@ export const Button = ({ title, type, children }) => {
       [css.btnHomePage]: title === 'View Catalog',
       [css.btnListItem]: title === 'Read more',
       [css.btnSearch]: title === 'Search',
+      [css.btnSend]: title === 'Send',
       [css.btnLoadMore]: title === 'Load More',
     });
   };

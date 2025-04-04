@@ -40,3 +40,14 @@
 .btn.btnSearch:focus {
   background-color: var(--button-background-active);
 }
+
+.btn.btnSend {
+  width: 156px;
+  background-color: var(--button-background);
+  color: var(--white);
+}
+
+.btn.btnSend:hover,
+.btn.btnSend:focus {
+  background-color: var(--button-background-active);
+}

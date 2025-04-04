@@ -43,7 +43,6 @@
 .idBrandModel {
   display: flex;
   justify-content: start;
-  /* align-items: flex-end; */
   gap: 16px;
   margin-bottom: 8px;
 }
@@ -73,9 +72,15 @@
 .location-mileage {
   display: flex;
   justify-content: start;
-  align-items: center;
+  align-items: flex-end;
   gap: 16px;
   margin-bottom: 16px;
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0%;
+  color: var(--main-text-color);
 }
 
 .carPrice {
@@ -171,7 +176,6 @@
   flex-direction: column;
   align-items: start;
   gap: 20px;
-  margin-bottom: 110px;
 }
 
 .carFunction h3 {

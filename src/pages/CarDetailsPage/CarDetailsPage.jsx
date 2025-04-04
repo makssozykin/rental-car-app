@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCarById } from '../../redux/cars/operations.js';
 import { Loader } from '../../components/Loader/Loader.jsx';
+import { BookForm } from '../../components/BookForm/BookForm.jsx';
 import sprite from '/icons/sprite1.svg';
 import css from './CarDetailsPage.module.css';
 
@@ -68,7 +69,9 @@ const CarDetailsPage = () => {
           <div className={css.carImg}>
             <img src={img} alt={`${brand} ${model}`} />
           </div>
-          <div>BookCarForm</div>
+          <div>
+            <BookForm />
+          </div>
         </div>
         <div className={css.carInfo}>
           <div className={css.carMainInfo}>
