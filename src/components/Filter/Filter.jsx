@@ -148,7 +148,7 @@ export const Filter = ({ onSearch }) => {
 
               placeholder: styles => ({
                 ...styles,
-                color: 'rgba(18, 20, 23, 1)',
+                color: 'var(--main-text-color)',
               }),
             }}
             components={{

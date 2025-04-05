@@ -47,6 +47,23 @@ export const BookForm = () => {
     reset();
   };
 
+  const isToday = date => {
+    const today = new Date();
+    return (
+      date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear()
+    );
+  };
+
+  const getDayClassName = date => {
+    let className = css.datePickerDay;
+    if (isToday(date)) {
+      className = `${className} ${css.datePickerDayToday}`;
+    }
+    return className;
+  };
+
   return (
     <div>
       <form
@@ -61,6 +78,7 @@ export const BookForm = () => {
             type="text"
             {...register('name')}
             placeholder="Name*"
+            autoComplete="off"
           />
           {errors.name && (
             <span className={css.errorName}>{errors.name.message}</span>
@@ -70,22 +88,31 @@ export const BookForm = () => {
             type="email"
             {...register('email')}
             placeholder="Email*"
+            autoComplete="off"
           />
           {errors.email && (
             <span className={css.errorEmail}>{errors.email.message}</span>
           )}
           <DatePicker
             className={css.calendar}
+            calendarClassName={css.datePickerCalendar}
+            dayClassName={getDayClassName}
+            popperClassName={css.datePickerPopper}
             {...register('date')}
             selected={startDate}
+            minDate={new Date()}
             onChange={handleDateChange}
             placeholderText="Booking date"
             dateFormat="yyyy-MM-dd"
+            inputProps={{
+              autocomplete: 'off',
+            }}
           />
           <textarea
             className={css.formText}
             {...register('comment')}
             placeholder="Comment"
+            autoComplete="off"
           />
         </div>
         <Button type="submit" title="Send">
