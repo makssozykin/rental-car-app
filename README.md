@@ -5,12 +5,12 @@
  ### - Technologies: React, React Router, Redux, Axios, Module CSS.
 
  ### - Main functions:
- **There are three pages with navigation.**<br>
- **The HomePage includes a banner with the main call to action and the button that navigate you to the CatalogPage.**<br> 
- **The CatalogPage includes:**<br>
+ **There are three pages with navigation:**<br>
+ **- The HomePage includes a banner with the main call to action and the button that navigate you to the CatalogPage.**<br> 
+ **- The CatalogPage includes:**<br>
   *1. filters for searching cars by parameters: brand, rental price, mileage from and to.*<br>
-  *2. the list of cars with photo, basic information about the car and the button that navigate you to the CarDetailsPage. Also you can add cars to favorites.*<br>   
- **The CarDetailsPage includes:**<br>
+  *2. the list of cars with photo, basic information about the car and the button that navigate you to the CarDetailsPage. Also you can add cars to favorites.*   
+ **- The CarDetailsPage includes:**<br>
   *1. the detailed information about the car you chose.*<br>
   *2. a car rental booking form - you could choose date for booking and send some comment if you want.*<br>
 
