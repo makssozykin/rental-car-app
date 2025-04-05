@@ -18,6 +18,7 @@ import {
 import { Button } from '../Button/Button.jsx';
 import sprite from '/icons/sprite1.svg';
 import css from './Filter.module.css';
+import toast from 'react-hot-toast';
 
 export const Filter = ({ onSearch }) => {
   const dispatch = useDispatch();
@@ -34,6 +35,36 @@ export const Filter = ({ onSearch }) => {
   }
 
   const brandsOptions = brands.map(brand => ({ value: brand, label: brand }));
+
+  const formatNumber = number => {
+    const value = number.toString().replace(/,/g, '');
+    const formattedValue = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return formattedValue;
+  };
+
+  const handleMinMileageChange = event => {
+    const rawValue = event.target.value.replace(/,/g, '');
+    const parsedValue = rawValue === '' ? '' : parseInt(rawValue, 10);
+    dispatch(setMinMileageFilter(parsedValue));
+
+    if (isNaN(parsedValue) && rawValue !== '') {
+      toast.error('Please enter a valid number Mileage From.');
+      dispatch(setMinMileageFilter(''));
+      event.target.value = '';
+    }
+  };
+
+  const handleMaxMileageChange = event => {
+    const rawValue = event.target.value.replace(/,/g, '');
+    const parsedValue = rawValue === '' ? '' : parseInt(rawValue, 10);
+    dispatch(setMaxMileageFilter(parsedValue));
+
+    if (isNaN(parsedValue) && rawValue !== '') {
+      toast.error('Please enter a valid number Mileage To.');
+      dispatch(setMaxMileageFilter(''));
+      event.target.value = '';
+    }
+  };
 
   useEffect(() => {
     dispatch(getCarsBrand());
@@ -221,19 +252,15 @@ export const Filter = ({ onSearch }) => {
             className={css.inputFrom}
             type="text"
             name="inputFrom"
-            value={mileageCarFrom}
-            onChange={event =>
-              dispatch(setMinMileageFilter(event.target.value))
-            }
+            value={formatNumber(mileageCarFrom)}
+            onChange={handleMinMileageChange}
           />
           <input
             className={css.inputTo}
             type="text"
             name="inputTo"
-            value={mileageCarTo}
-            onChange={event =>
-              dispatch(setMaxMileageFilter(event.target.value))
-            }
+            value={formatNumber(mileageCarTo)}
+            onChange={handleMaxMileageChange}
           />
           <p className={css.textForm}>From</p>
           <p className={css.textTo}>To</p>
