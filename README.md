@@ -1,12 +1,23 @@
-# React + Vite
+#Project: "RentalCar App"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ - Description: This App is for the RentalCar company. App includes HomePage, CatalogPage and CarDetailsPage with details and Booking form.
 
-Currently, two official plugins are available:
+ - Technologies: React, React Router, Redux, Axios, Module CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ - Main functions:
+ There are three pages with navigation. 
+ The HomePage includes a banner with the main call to action and the button that navigate you to the CatalogPage. The CatalogPage includes:
+  - filters for searching cars by parameters: brand, rental price, mileage from and to.
+  - the list of cars with photo, basic information about the car and the button that navigate you to the CarDetailsPage. Also you can add cars to favorites.   
+ The CarDetailsPage includes:
+  - the detailed information about the car you chose.
+  - a car rental booking form - you could choose date for booking and send some comment if you want.
 
-## Expanding the ESLint configuration
+ - Installation Guide:
+   1. Clone the repository to your computer - git clone https://github.com/your-repo/rental-car-app.git
+   2. Go to the project folder - cd rental-car-app
+   3. Install dependencies - npm install
+   4. Run the server - npm run dev
+   5. Follow link http://localhost:5173 to open application in the browser .
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ - Full-stack developer: Maksym Sozykin - mvsozykin@gmail.com.
