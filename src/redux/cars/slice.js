@@ -23,7 +23,6 @@ const slice = createSlice({
   initialState,
   reducers: {
     addFavoriteCar: (state, action) => {
-      console.log(action.payload);
       const carFind = state.catalog.find(car => car.id === action.payload.id);
       if (carFind) state.favoriteCars.push(action.payload);
     },
@@ -49,7 +48,6 @@ const slice = createSlice({
       })
       .addCase(getCarsMore.pending, handlePending)
       .addCase(getCarsMore.fulfilled, (state, action) => {
-        console.log(action.payload.cars);
         state.loading = false;
         state.catalog = [...state.catalog, ...action.payload.cars];
         state.page += 1;
