@@ -1,15 +1,16 @@
 .header {
-  width: 100vw;
   background-color: var(--header-background);
   border: 1px solid var(--header-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .headerContainer {
-  width: 1440px;
+  min-width: 1440px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
   padding: 24px 120px;
 }
 

@@ -18,7 +18,14 @@
   --white: #ffffff;
 }
 
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
 body {
+  min-width: 1440px;
+
   font-family: var(--main-font);
   background-color: var(--body-background);
 }

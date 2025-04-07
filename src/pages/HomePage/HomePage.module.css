@@ -1,7 +1,9 @@
 .main {
+  width: 1440px;
   height: 700px;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
   padding-top: 436px;
   padding-bottom: 60px;
   background-color: var(--main-text-color);
