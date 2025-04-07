@@ -65,6 +65,7 @@
   margin: 0;
   border-radius: 12px;
   border: none;
+  outline: none;
   background-color: var(--input-background);
   font-family: var(--main-font);
   font-weight: 500;
@@ -74,7 +75,6 @@
 }
 
 .datePickerCalendar {
-  z-index: 10;
   font-family: 'Manrope', sans-serif !important;
   font-weight: 400 !important;
   font-size: 14px !important;
@@ -94,10 +94,10 @@
   margin-bottom: 12px;
 }
 
-svg {
+/* svg {
   z-index: 10;
   stroke: #3470ff !important;
-}
+} */
 
 .datePickerDay {
   width: 36px;

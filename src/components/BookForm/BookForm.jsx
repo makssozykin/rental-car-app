@@ -101,6 +101,7 @@ export const BookForm = () => {
             {...register('date')}
             selected={startDate}
             minDate={new Date()}
+            formatWeekDay={day => day.toUpperCase().slice(0, 3)}
             onChange={handleDateChange}
             placeholderText="Booking date"
             dateFormat="yyyy-MM-dd"

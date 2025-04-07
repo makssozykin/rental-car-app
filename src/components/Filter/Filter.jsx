@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBrands } from '../../redux/cars/selectors.js';
@@ -16,15 +16,13 @@ import {
   selectedMaxMileage,
 } from '../../redux/filters/selectors.js';
 import { Button } from '../Button/Button.jsx';
-import sprite from '/icons/sprite1.svg';
+import DropdownIndicator from '../DropdownIndicator/DropdownIndicator.jsx';
 import css from './Filter.module.css';
 import toast from 'react-hot-toast';
 
 export const Filter = ({ onSearch }) => {
   const dispatch = useDispatch();
-  const [showChooseBrand, setShowChooseBrand] = useState(false);
   const brandCar = useSelector(selectedBrand);
-  const [showChoosePrice, setShowChoosePrice] = useState(false);
   const priceCar = useSelector(selectedRentalPrice);
   const mileageCarFrom = useSelector(selectedMinMileage);
   const mileageCarTo = useSelector(selectedMaxMileage);
@@ -70,14 +68,6 @@ export const Filter = ({ onSearch }) => {
     dispatch(getCarsBrand());
   }, [dispatch]);
 
-  const handleDropDownBrand = () => {
-    setShowChooseBrand(!showChooseBrand);
-    console.log(showChooseBrand);
-  };
-  const handleDropDownPrice = () => {
-    setShowChoosePrice(!showChoosePrice);
-  };
-
   const handleSearchSubmit = async event => {
     event.preventDefault();
     const formData = {
@@ -103,147 +93,45 @@ export const Filter = ({ onSearch }) => {
     <form className={css.searchForm} onSubmit={handleSearchSubmit}>
       <div className={css.brandContainer}>
         <label htmlFor="brandSelect">Car brand</label>
-        <div className={css.selectContainer} onClick={handleDropDownBrand}>
-          <Select
-            id="brandSelect"
-            placeholder="Choose a brand"
-            value={brandCar}
-            isClearable={true}
-            onChange={selectedOption =>
-              dispatch(setBrandFilter(selectedOption))
-            }
-            options={brandsOptions}
-            styles={{
-              control: () => ({
-                width: '100%',
-                height: '44px',
-                borderColor: 'rgba(18, 20, 23, 0.2)',
-                border: 'none',
-                borderRadius: '12px',
-                backgroundColor: 'var(--input-background)',
-                padding: '12px 16px',
-                fontSize: '16px',
-                fontFamily: 'Manrope',
-                fontWeight: '500',
-                lineHeight: '1.25',
-                appearance: 'none',
-                display: 'flex',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-              }),
-              option: (styles, { isFocused }) => {
-                return {
-                  ...styles,
-                  padding: '12px 16px',
-                  color: isFocused
-                    ? 'var(--main-text-color)'
-                    : 'var(--second-text-color)',
-                  backgroundColor: 'transparent',
-                  fontFamily: 'Manrope',
-                  lineHeight: '1.25',
-                  display: 'flex',
-                  alignItems: 'center',
-                };
-              },
-
-              placeholder: styles => ({
-                ...styles,
-                color: 'var(--main-text-color)',
-              }),
-            }}
-            components={{
-              IndicatorSeparator: () => null,
-              DropdownIndicator: () => null,
-              ClearIndicator: () => null,
-            }}
-            menuIsOpen={showChooseBrand}
-          />
-          <svg className={css.chevronIcon}>
-            <use
-              href={
-                showChooseBrand
-                  ? sprite + '#icon-chevron-up'
-                  : sprite + '#icon-chevron-down'
-              }
-            />
-          </svg>
-        </div>
+        <Select
+          id="brandSelect"
+          classNamePrefix="select"
+          placeholder="Choose a brand"
+          value={brandCar}
+          isClearable={true}
+          onChange={selectedOption => dispatch(setBrandFilter(selectedOption))}
+          options={brandsOptions}
+          components={{
+            DropdownIndicator,
+          }}
+          styles={{
+            indicatorSeparator: () => ({ display: 'none' }),
+            ClearIndicator: () => ({ display: 'none' }),
+          }}
+          isSearchable={false}
+        />
       </div>
       <div className={css.brandContainer}>
         <label htmlFor="priceSelect">Price/ 1 hour</label>
-        <div className={css.selectContainer} onClick={handleDropDownPrice}>
-          <Select
-            id="priceSelect"
-            placeholder="Choose a price"
-            value={priceCar}
-            isClearable={true}
-            onChange={selectedOption =>
-              dispatch(setRentalPriceFilter(selectedOption))
-            }
-            options={prices}
-            styles={{
-              control: () => ({
-                width: '100%',
-                height: '44px',
-                borderColor: 'rgba(18, 20, 23, 0.2)',
-                border: 'none',
-                borderRadius: '12px',
-                backgroundColor: 'var(--input-background)',
-                padding: '12px 16px',
-                fontSize: '16px',
-                fontFamily: 'Manrope',
-                fontWeight: '500',
-                lineHeight: '1.25',
-                appearance: 'none',
-                display: 'flex',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                gap: '8px',
-              }),
-              MenuList: () => {
-                return {
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  width: '196px',
-                  height: '188px',
-                };
-              },
-              option: (styles, { isFocused }) => {
-                return {
-                  ...styles,
-                  padding: '12px 16px',
-                  color: isFocused
-                    ? 'var(--main-text-color)'
-                    : 'var(--second-text-color)',
-                  backgroundColor: 'transparent',
-                  fontFamily: 'Manrope',
-                  lineHeight: '1.25',
-                };
-              },
-
-              placeholder: styles => ({
-                ...styles,
-                color: 'rgba(18, 20, 23, 1)',
-              }),
-            }}
-            components={{
-              IndicatorSeparator: () => null,
-              DropdownIndicator: () => null,
-              ClearIndicator: () => null,
-            }}
-            menuIsOpen={showChoosePrice}
-          />
-          <svg className={css.chevronIcon}>
-            <use
-              href={
-                showChoosePrice
-                  ? sprite + '#icon-chevron-up'
-                  : sprite + '#icon-chevron-down'
-              }
-            />
-          </svg>
-        </div>
+        <Select
+          id="priceSelect"
+          classNamePrefix="select"
+          placeholder="Choose a price"
+          value={priceCar}
+          isClearable={true}
+          onChange={selectedOption =>
+            dispatch(setRentalPriceFilter(selectedOption))
+          }
+          options={prices}
+          components={{
+            DropdownIndicator,
+          }}
+          styles={{
+            indicatorSeparator: () => ({ display: 'none' }),
+            ClearIndicator: () => ({ display: 'none' }),
+          }}
+          isSearchable={false}
+        />
       </div>
       <div className={`${css.brandContainer} ${css.inputs}`}>
         <label>Сar mileage / km</label>

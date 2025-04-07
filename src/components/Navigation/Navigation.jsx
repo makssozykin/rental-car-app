@@ -9,17 +9,19 @@ export const Navigation = () => {
   };
   return (
     <header className={css.header}>
-      <NavLink to="/">
-        <Logo />
-      </NavLink>
-      <nav className={css.navigation}>
-        <NavLink className={classLink} to="/">
-          Home
+      <div className={css.headerContainer}>
+        <NavLink to="/">
+          <Logo />
         </NavLink>
-        <NavLink className={classLink} to="/catalog">
-          Catalog
-        </NavLink>
-      </nav>
+        <nav className={css.navigation}>
+          <NavLink className={classLink} to="/">
+            Home
+          </NavLink>
+          <NavLink className={classLink} to="/catalog">
+            Catalog
+          </NavLink>
+        </nav>
+      </div>
     </header>
   );
 };
