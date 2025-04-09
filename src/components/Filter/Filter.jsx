@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Select from 'react-select';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectBrands } from '../../redux/cars/selectors.js';
 import { getCarsBrand } from '../../redux/cars/operations.js';
@@ -21,6 +22,7 @@ import css from './Filter.module.css';
 import toast from 'react-hot-toast';
 
 export const Filter = ({ onSearch }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const brandCar = useSelector(selectedBrand);
   const priceCar = useSelector(selectedRentalPrice);
@@ -92,11 +94,13 @@ export const Filter = ({ onSearch }) => {
   return (
     <form className={css.searchForm} onSubmit={handleSearchSubmit}>
       <div className={css.brandContainer}>
-        <label htmlFor="brandSelect">Car brand</label>
+        <label htmlFor="brandSelect">
+          {t('catalogPage.filters.brandLabel')}
+        </label>
         <Select
           id="brandSelect"
           classNamePrefix="select"
-          placeholder="Choose a brand"
+          placeholder={t('catalogPage.filters.placeholderBrand')}
           value={brandCar}
           isClearable={true}
           onChange={selectedOption => dispatch(setBrandFilter(selectedOption))}
@@ -112,11 +116,13 @@ export const Filter = ({ onSearch }) => {
         />
       </div>
       <div className={css.brandContainer}>
-        <label htmlFor="priceSelect">Price/ 1 hour</label>
+        <label htmlFor="priceSelect">
+          {t('catalogPage.filters.priceLabel')}
+        </label>
         <Select
           id="priceSelect"
           classNamePrefix="select"
-          placeholder="Choose a price"
+          placeholder={t('catalogPage.filters.placeholderPrice')}
           value={priceCar}
           isClearable={true}
           onChange={selectedOption =>
@@ -134,7 +140,7 @@ export const Filter = ({ onSearch }) => {
         />
       </div>
       <div className={`${css.brandContainer} ${css.inputs}`}>
-        <label>Сar mileage / km</label>
+        <label>{t('catalogPage.filters.mileageLabel')}</label>
         <div>
           <input
             className={css.inputFrom}
@@ -150,12 +156,12 @@ export const Filter = ({ onSearch }) => {
             value={formatNumber(mileageCarTo)}
             onChange={handleMaxMileageChange}
           />
-          <p className={css.textForm}>From</p>
-          <p className={css.textTo}>To</p>
+          <p className={css.textForm}>{t('catalogPage.filters.from')}</p>
+          <p className={css.textTo}>{t('catalogPage.filters.to')}</p>
         </div>
       </div>
       <Button title="Search" type="submit">
-        Search
+        {t('catalogPage.filters.button')}
       </Button>
     </form>
   );

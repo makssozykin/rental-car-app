@@ -15,7 +15,7 @@
 }
 
 .container {
-  width: 783px;
+  width: 1440px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,6 +30,7 @@ h1 {
   letter-spacing: 0%;
   color: var(--white);
   margin-bottom: 16px;
+  text-align: center;
 }
 
 h2 {
@@ -40,6 +41,7 @@ h2 {
   letter-spacing: 0%;
   color: var(--white);
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .catalogBtn {

@@ -10,7 +10,9 @@ import { Filter } from '../../components/Filter/Filter.jsx';
 import { CatalogList } from '../../components/CatalogList/CatalogList.jsx';
 import css from './CarsPage.module.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 const CarsPage = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const catalog = useSelector(selectCars);
   const page = useSelector(selectPage);
@@ -18,7 +20,7 @@ const CarsPage = () => {
   const [query, setQuery] = useState({});
   const [isLoadMore, setIsLoadMore] = useState(false);
   const hasMoreCars = page < totalPages;
-
+  console.log(catalog);
   useEffect(() => {
     dispatch(getCars(query));
   }, [dispatch, query]);
@@ -41,7 +43,7 @@ const CarsPage = () => {
       <CatalogList catalog={catalog} />
       {hasMoreCars && (
         <Button type="button" onClick={handleLoadMore} title="Load more">
-          Load more
+          {t('catalogPage.button')}
         </Button>
       )}
     </main>

@@ -1,0 +1,24 @@
+{
+    "navigation": {
+        "home": "Домашня",
+        "catalog": "Каталог"
+    },
+    "homepage": {
+        "title": "Знайдіть свій ідеальний автомобіль для оренди",
+        "text": "Надійна та бюджетна оренда для будь-якої подорожі",
+        "button": "Каталог"
+    },
+    "catalogPage": {
+        "filters": {
+            "brandLabel": "Бренд авто",
+            "placeholderBrand": "Вибіріть бренд",
+            "priceLabel": "Ціна/ 1 година",
+            "placeholderPrice": "Вибіріть ціну",
+            "mileageLabel": "Пробіг авто / км",
+            "from": "Від",
+            "to": "До",
+            "button": "Пошук"
+        },
+        "button": "Більше авто"
+    }
+}

@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
 import { Button } from '../../components/Button/Button.jsx';
+import { useTranslation } from 'react-i18next';
 import css from './HomePage.module.css';
 
 const HomePage = () => {
+  const { t } = useTranslation();
   return (
     <main className={css.main}>
       <div className={css.container}>
-        <h1>Find your perfect rental car</h1>
-        <h2>Reliable and budget-friendly rentals for any journey</h2>
+        <h1>{t('homepage.title')}</h1>
+        <h2>{t('homepage.text')}</h2>
         <Link to="/catalog">
           <Button title="View Catalog" type="button">
-            View Catalog
+            {t('homepage.button')}
           </Button>
         </Link>
       </div>

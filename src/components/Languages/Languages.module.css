@@ -1,0 +1,29 @@
+.languages {
+  display: flex;
+  gap: 5px;
+  margin-right: 10px;
+}
+
+.languageBtn {
+  display: flex;
+  /* flex-direction: row-reverse; */
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  transform: scale(1);
+  transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.languageBtn:hover,
+.languageBtn:active {
+  transform: scale(1.2);
+}
+
+.iconFlag {
+  width: 30px;
+  height: 30px;
+}
+
+.line {
+  font-size: 30px;
+}
