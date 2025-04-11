@@ -19,6 +19,28 @@
             "to": "To",
             "button": "Search"
         },
+        "catalogItem": {
+            "km": "km",
+            "button": "Read more"
+        },
         "button": "Load more"
-    }
+    },
+    "Kiev": "Kiev",
+    "Lviv": "Lviv",
+    "Odessa": "Odessa",
+    "Kharkiv": "Kharkiv",
+    "Dnipro": "Dnipro",
+    "Ivano-Frankivsk": "Ivano-Frankivsk",
+    "Uzhhorod": "Uzhhorod",
+    "Ternopil": "Ternopil",
+    "Lutsk": "Lutsk",
+    "Chernivtsi": "Chernivtsi",
+    "Zaporizhzhia": "Zaporizhzhia",
+    "Vinnytsia": "Vinnytsia",
+    "Ukraine": "Ukraine",
+    "SUV": "SUV",
+    "Convertible": "Convertible",
+    "Hatchback": "Hatchback",
+    "Van/Minivan": "Van/Minivan",
+    "Sedan, Hatchback": "Sedan, Hatchback"
 }

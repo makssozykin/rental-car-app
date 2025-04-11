@@ -19,6 +19,28 @@
             "to": "До",
             "button": "Пошук"
         },
+        "catalogItem": {
+            "km": "км",
+            "button": "Детальніше"
+        },
         "button": "Більше авто"
-    }
+    },
+    "Kiev": "Київ",
+    "Lviv": "Львів",
+    "Odessa": "Одеса",
+    "Kharkiv": "Харків",
+    "Dnipro": "Дніпро",
+    "Ivano-Frankivsk": "Івано-Франківськ",
+    "Uzhhorod": "Ужгород",
+    "Ternopil": "Тернопіль",
+    "Lutsk": "Луцьк",
+    "Chernivtsi": "Чернівці",
+    "Zaporizhzhia": "Запоріжжя",
+    "Vinnytsia": "Вінниця",
+    "Ukraine": "Україна",
+    "SUV": "Позашляховик",
+    "Convertible": "Кабріолет",
+    "Hatchback": "Хетчбек",
+    "Van/Minivan": "Фургон/Мінівен",
+    "Sedan, Hatchback": "Седан, Хетчбек"
 }

@@ -1,5 +1,6 @@
 import { useLocation, Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../Button/Button.jsx';
 import { addFavoriteCar, removeFavoriteCar } from '../../redux/cars/slice.js';
 import { selectFavoriteCars } from '../../redux/cars/selectors.js';
@@ -7,6 +8,7 @@ import sprite from '/icons/sprite1.svg';
 import css from './CatalogItem.module.css';
 
 export const CatalogItem = ({ car }) => {
+  const { t } = useTranslation();
   const {
     id,
     brand,
@@ -32,8 +34,9 @@ export const CatalogItem = ({ car }) => {
   };
 
   const location = useLocation();
-  const city = address.split(',')[1];
-  const country = address.split(',')[2];
+  const city = address.split(',')[1].trim();
+  console.log(city);
+  const country = address.split(',')[2].trim();
   const km = Math.round(Number(mileage) * 1.60934).toLocaleString();
   return (
     <>
@@ -58,13 +61,13 @@ export const CatalogItem = ({ car }) => {
         <p>{`$${rentalPrice}`}</p>
       </div>
       <div className={css.location}>
-        <p>{`${city} | ${country} | ${rentalCompany} |`}</p>
-        <p>{`${type} | ${km} km`}</p>
+        <p>{`${t(city)} | ${t(country)} | ${rentalCompany} |`}</p>
+        <p>{`${t(type)} | ${km} ${t('catalogPage.catalogItem.km')}`}</p>
       </div>
 
       <Link state={location} to={`/catalog/${id}`}>
         <Button title="Read more" type="button">
-          Read more
+          {t('catalogPage.catalogItem.button')}
         </Button>
       </Link>
     </>
