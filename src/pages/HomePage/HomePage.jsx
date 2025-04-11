@@ -8,11 +8,11 @@ const HomePage = () => {
   return (
     <main className={css.main}>
       <div className={css.container}>
-        <h1>{t('homepage.title')}</h1>
-        <h2>{t('homepage.text')}</h2>
+        <h1>{t('homePage.title')}</h1>
+        <h2>{t('homePage.text')}</h2>
         <Link to="/catalog">
           <Button title="View Catalog" type="button">
-            {t('homepage.button')}
+            {t('homePage.button')}
           </Button>
         </Link>
       </div>
