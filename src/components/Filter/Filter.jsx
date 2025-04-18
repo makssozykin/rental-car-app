@@ -139,25 +139,31 @@ export const Filter = ({ onSearch }) => {
           isSearchable={false}
         />
       </div>
-      <div className={`${css.brandContainer} ${css.inputs}`}>
+      <div className={css.brandContainer}>
         <label>{t('catalogPage.filters.mileageLabel')}</label>
-        <div>
-          <input
-            className={css.inputFrom}
-            type="text"
-            name="inputFrom"
-            value={formatNumber(mileageCarFrom)}
-            onChange={handleMinMileageChange}
-          />
-          <input
-            className={css.inputTo}
-            type="text"
-            name="inputTo"
-            value={formatNumber(mileageCarTo)}
-            onChange={handleMaxMileageChange}
-          />
-          <p className={css.textForm}>{t('catalogPage.filters.from')}</p>
-          <p className={css.textTo}>{t('catalogPage.filters.to')}</p>
+        <div className={css.fromToCont}>
+          <div className={css.fromCont}>
+            <input
+              className={css.inputFrom}
+              type="text"
+              name="inputFrom"
+              value={formatNumber(mileageCarFrom)}
+              onChange={handleMinMileageChange}
+            />
+            <p className={css.textForm}>{t('catalogPage.filters.from')}</p>
+          </div>
+
+          <span></span>
+          <div className={css.toCont}>
+            <input
+              className={css.inputTo}
+              type="text"
+              name="inputTo"
+              value={formatNumber(mileageCarTo)}
+              onChange={handleMaxMileageChange}
+            />
+            <p className={css.textTo}>{t('catalogPage.filters.to')}</p>
+          </div>
         </div>
       </div>
       <Button title="Search" type="submit">

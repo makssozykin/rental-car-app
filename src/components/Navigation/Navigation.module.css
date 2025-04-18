@@ -1,21 +1,20 @@
 .header {
   background-color: var(--header-background);
   border: 1px solid var(--header-background);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 24px 0;
+  width: 100%;
 }
 
 .headerContainer {
-  min-width: 1440px;
   display: flex;
   align-items: center;
-  padding: 24px 120px;
+  justify-content: space-between;
+  padding: 0 120px;
 }
 
-.logoLink {
+/* .logoLink {
   margin-right: auto;
-}
+} */
 
 .navigation {
   display: flex;
@@ -35,4 +34,11 @@
     color: var(--button-background-active);
     transition: all 0.3s ease-in-out;
   }
+}
+
+.navLang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }

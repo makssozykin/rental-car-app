@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  flex-wrap: wrap;
   gap: 16px;
   margin-top: 84px;
   margin-bottom: 56px;
@@ -68,8 +69,23 @@
   cursor: pointer;
 }
 
-.inputs {
+.fromToCont {
+  display: flex;
+  align-items: flex-end;
+}
+
+.fromCont {
   position: relative;
+}
+
+.toCont {
+  position: relative;
+}
+
+.fromToCont span {
+  width: 1px;
+  height: 44px;
+  background-color: var(--favorite-background);
 }
 
 .inputFrom {
@@ -78,7 +94,6 @@
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
   border: none;
-  border-right: 1px solid var(--favorite-background);
   background-color: var(--input-background);
   color: var(--main-text-color);
   font-family: var(--main-font);
@@ -90,7 +105,7 @@
 
 .textForm {
   position: absolute;
-  top: 36px;
+  top: 12px;
   left: 24px;
   font-family: var(--main-font);
   font-weight: 500;
@@ -115,8 +130,8 @@
 
 .textTo {
   position: absolute;
-  top: 36px;
-  left: 184px;
+  top: 12px;
+  left: 24px;
   font-family: var(--main-font);
   font-weight: 500;
   font-size: 16px;

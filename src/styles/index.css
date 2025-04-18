@@ -19,13 +19,12 @@
 }
 
 html {
-  box-sizing: border-box;
+  height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
-  min-width: 1440px;
-
+  height: 100%;
   font-family: var(--main-font);
   background-color: var(--body-background);
 }
